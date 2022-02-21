@@ -1,6 +1,6 @@
-package com.techrepairsdata.repositories;
+package com.techrepairs.repositories;
 
-import com.techrepairsdata.domain.Owner;
+import com.techrepairs.domain.Owner;
 import org.springframework.data.repository.CrudRepository;
 
 public interface OwnerRepository extends CrudRepository<Owner, Long>{}
