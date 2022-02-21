@@ -1,6 +1,6 @@
-package com.techrepairsdata.repositories;
+package com.techrepairs.repositories;
 
-import com.techrepairsdata.domain.RepairItem;
+import com.techrepairs.domain.RepairItem;
 import org.springframework.data.repository.CrudRepository;
 
 public interface RepairItemRepository extends CrudRepository<RepairItem, Long> {

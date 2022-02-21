@@ -1,4 +1,4 @@
-package com.techrepairsdata.domain;
+package com.techrepairs.domain;
 
 
 import lombok.AllArgsConstructor;
