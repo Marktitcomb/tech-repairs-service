@@ -6,7 +6,7 @@ import com.techrepairs.services.OwnerService;
 import java.util.Set;
 
 
-public class OwnerMappingService extends AbstractMapService<Owner, Long> implements OwnerService {
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll(){
