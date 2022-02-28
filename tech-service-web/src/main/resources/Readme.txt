@@ -15,3 +15,9 @@ There is also the concept of service mapping brought in.
     So it's all just in memory not being connected to the repositories like in (JPA)
 
     This is just used as a simple stage for testing etc
+
+    public class OwnerMappingService extends AbstractMapService<Owner, Long>{ ....
+
+    so now the Owner service implementation is extending the abstract class and filling
+    in the generics so the concrete function in AbstractMapService can be used
+    by calling super!!!
