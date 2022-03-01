@@ -21,3 +21,9 @@ There is also the concept of service mapping brought in.
     so now the Owner service implementation is extending the abstract class and filling
     in the generics so the concrete function in AbstractMapService can be used
     by calling super!!!
+
+
+    TESTING
+    So using Long ownerIDFromRepo = owner.getId(); was kicking up a stink because it wanted an optional
+    I think this is the test case worrying about the possibility of receiving a null value
+    which is fair as in the service clas this is a possibility
