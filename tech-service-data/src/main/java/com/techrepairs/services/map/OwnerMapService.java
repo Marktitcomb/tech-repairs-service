@@ -1,11 +1,12 @@
 package com.techrepairs.services.map;
 
 import com.techrepairs.domain.Owner;
-import com.techrepairs.services.OwnerService;
+import com.techrepairs.services.interfaces.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-
+@Service
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
@@ -28,7 +29,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findById(Long id){
-        return super.findByID(id);
+        return super.findbyid(id);
     }
 
     @Override

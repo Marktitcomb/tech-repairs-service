@@ -1,4 +1,4 @@
-package com.techrepairs.services;
+package com.techrepairs.services.interfaces;
 
 import java.util.Set;
 

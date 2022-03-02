@@ -2,7 +2,6 @@ package com.techrepairs.bootstrap;
 
 import com.techrepairs.domain.Owner;
 import com.techrepairs.domain.RepairItem;
-import com.techrepairs.services.ItemServiceImpl;
 import com.techrepairs.repositories.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -5,8 +5,6 @@ import com.techrepairs.domain.Owner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OwnerMapServiceTest {
@@ -34,6 +32,23 @@ public class OwnerMapServiceTest {
         Owner owner = ownerMappingService.findById(ownerId);
         Long ownerIDFromRepo = owner.getId();
         assert(owner.getLastName().equals(lastName));
+    }
+
+    @Test
+    void save(){
+        Owner ownerToSave = new Owner();
+        ownerToSave.setId(ownerId + 1);
+        ownerToSave.setLastName(lastName);
+        Owner savedOwner = ownerMappingService.save(ownerToSave);
+        assert(savedOwner.getId().equals(ownerId + 1));
+        assert(ownerMappingService.map.size() == 2);
+    }
+
+    @Test
+    void delete(){
+        Owner ownerToDelete = ownerMappingService.findbyid(ownerId);
+        ownerMappingService.delete(ownerToDelete);
+        assert(ownerMappingService.map.size() == 0);
     }
 
 
