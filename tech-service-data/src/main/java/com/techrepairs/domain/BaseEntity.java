@@ -1,7 +1,9 @@
 package com.techrepairs.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +20,8 @@ import java.io.Serializable;
  * persistent properties as if they were declared by the child class
  * extending the superclass annotated with @MappedSuperclass.
  * */
+@Getter
+@Setter
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 

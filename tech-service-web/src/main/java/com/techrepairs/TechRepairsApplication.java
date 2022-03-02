@@ -26,17 +26,17 @@ public class TechRepairsApplication {
 		//ApplicationContext context = SpringApplication.run(TechRepairsApplication.class, args);
 
 		//RepairItem item = (RepairItem) context.getBean("repairItem");
-
-		RepairItem item = new RepairItem();
-        item.setItemDescription("Iphone 4");
+//
+//		RepairItem item = new RepairItem();
+//        item.setItemDescription("Iphone 4");
 
 		//RepairItemRepository repairItemRepository = (RepairItemRepository) context.getBean("repairItemRepository");
 
 		//repairItemRepository.save(item);
 
-
-		System.out.println("hello");
-		System.out.println(item.getItemDescription());
+//
+//		System.out.println("hello");
+//		System.out.println(item.getItemDescription());
 	}
 
 }

@@ -20,7 +20,6 @@ import java.util.Set;
 @Table(name = "owners")
 public class Owner extends Person{
 
-
     private String postcode;
     private int houseNumber;
     private String telephone;
