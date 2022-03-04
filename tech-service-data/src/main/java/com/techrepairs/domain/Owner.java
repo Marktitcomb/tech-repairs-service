@@ -5,11 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -20,8 +18,13 @@ import java.util.Set;
 @Table(name = "owners")
 public class Owner extends Person{
 
+    @Column(name = "postcode")
     private String postcode;
+
+    @Column(name = "house_number")
     private int houseNumber;
+
+    @Column(name = "phone_num")
     private String telephone;
 
     /**
@@ -47,5 +50,16 @@ public class Owner extends Person{
         if(items !=  null){
             this.items = items;
         }
+    }
+
+    public Set<RepairItem> getRepairItems(){
+        return items;
+    }
+
+    public RepairItem getItemById(Long id){
+        return items.stream()
+                .filter(item -> item.getId() == id)
+                .findFirst()
+                .get();
     }
 }

@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 
 @AllArgsConstructor
@@ -20,6 +17,9 @@ public class RepairItem extends BaseEntity{
 
     @Column(name = "item_descrption")
     private String itemDescription;
+
+    @Enumerated(EnumType.ORDINAL)
+    private Type type;
     /**
      * Mapping this back to owners and saying how it joins
      * */

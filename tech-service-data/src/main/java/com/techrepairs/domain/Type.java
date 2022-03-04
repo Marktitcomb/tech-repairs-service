@@ -1,5 +1,9 @@
 package com.techrepairs.domain;
 
-public enum Type {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+public enum Type{
     PHONE,TABLET,LAPTOP
 }
