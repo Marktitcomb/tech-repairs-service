@@ -30,7 +30,7 @@ public class Repair extends BaseEntity{
 
     //each repair job is for a single item hence the one to one relation
     // the tables are conected by the repair items id
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "repairItem_id")
     private RepairItem repairItem;
 

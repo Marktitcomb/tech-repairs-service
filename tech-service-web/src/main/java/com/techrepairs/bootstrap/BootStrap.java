@@ -1,8 +1,11 @@
 package com.techrepairs.bootstrap;
 
 import com.techrepairs.domain.Owner;
+import com.techrepairs.domain.Repair;
 import com.techrepairs.domain.RepairItem;
-import com.techrepairs.repositories.*;
+import com.techrepairs.services.jpaservices.OwnerJPAService;
+import com.techrepairs.services.jpaservices.RepairItemJPAService;
+import com.techrepairs.services.jpaservices.RepairJPAService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -24,44 +27,50 @@ import java.util.Set;
 @Component
 public class BootStrap implements CommandLineRunner {
 
-    private final RepairItemRepository repairItemRepository;
-    private final OwnerRepository ownerRepository;
-    private final ItemServiceImpl service;
+    private final OwnerJPAService ownerJPAService;
+    private final RepairJPAService repairJPAService;
+    private final RepairItemJPAService repairItemJPAService;
 
     Logger logger = LoggerFactory.getLogger(BootStrap.class);
 
 
-    public BootStrap(ItemServiceImpl service, RepairItemRepository repairItemRepository, OwnerRepository ownerRepository){
-        this.service = service;
-        this.ownerRepository = ownerRepository;
-        this.repairItemRepository = repairItemRepository;
+    public BootStrap(OwnerJPAService ownerJPAService, RepairJPAService repairJPAService, RepairItemJPAService repairItemJPAService){
+        this.ownerJPAService = ownerJPAService;
+        this.repairJPAService = repairJPAService;
+        this.repairItemJPAService = repairItemJPAService;
 
     }
 
 
     @Override
     public void run(String... args) throws Exception {
-        RepairItem item = new RepairItem();
-        item.setItemDescription("Iphone 4");
-
-        //repairItemRepository.save(item);
 
         Owner owner = new Owner();
         owner.setPostcode("BH2325H");
-        owner.getItems().add(item);
         owner.setTelephone("07565665757");
         owner.setPostcode("BH234GD");
+        owner.setLastName("Smith");
+        owner.setFirstName("Steve");
+        owner.setHouseNumber(29);
 
-        //logger.info(ownerRepository.save(owner).getPostcode());
-        //output the item name here
-        Owner owner2 = ownerRepository.save(owner);
-        Set<RepairItem> items = (Set<RepairItem>) owner2.getItems();
+        RepairItem repairItem = new RepairItem();
+        repairItem.setItemDescription("Randon repair");
+        repairItem.setOwner(owner);
 
-        /**
-         * Remember how to do things with sets!!!!!!!!!!!!!!!!!!!!!
-         * */
-        RepairItem[] itemsArray = items.toArray(new RepairItem[items.size()]);
-        logger.info(itemsArray[0].getItemDescription());
+        owner.getItems().add(repairItem);
+
+        ownerJPAService.save(owner);
+
+//        Repair repairJob = new Repair();
+//        repairJob.setCost(33);
+//
+//        repairItem.getRepair().add(repairJob);
+//        repairJob.setRepairItem(repairItem);
+//
+//        repairJPAService.save(repairJob);
+//        repairItemJPAService.save(repairItem);
+//
+
 
         System.out.println("owner and single repair item loaded in");
         logger.info("owner and single repair item loaded in");
