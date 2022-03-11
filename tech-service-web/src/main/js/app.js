@@ -12,12 +12,13 @@ class App extends React.Component {
     }
     //is the API invoked after React renders a component in the DOM.
     componentDidMount() {
-        //so when your client gets the /api/employees
+        //so your client gets the /api/employees
         //and when its done
         //set the react employees variable to the repsonse.entity._embedded.employees
-        client({method: 'GET', path: '/api/owners'}).done(response => {
+        client({method: 'GET', path: '/api/repairItems'}).done(response => {
             this.setState({
-                owners: response.entity._embedded.owners
+                //._embedded.value is very important, you need the crrect name here!!
+                owners: response.entity._embedded.repairItems
             });
         });
     }
@@ -40,7 +41,6 @@ class OwnerList extends React.Component{
                 <tbody>
                 <tr>
                     <th>First Name</th>
-                    <th>Last Name</th>
                 </tr>
                 {owners}
                 </tbody>
@@ -55,8 +55,7 @@ class Owner extends React.Component{
     render(){
         return(
             <tr>
-                <td>{this.props.owner.postcode}</td>
-                <td>{this.props.owner.houseNumber}</td>
+                <td>{this.props.owner.itemDescription}</td>
             </tr>
         )
     }
