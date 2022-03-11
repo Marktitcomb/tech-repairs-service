@@ -1,26 +1,18 @@
 
 
----implementing Controllers
+---integrating react
 
-TODO rather than wasting time learning this thymeleaf platform turn these controllers restful
-    using the spring tutorial hateos etc. Start interacting using JS CSS html, then react
+Follow all steps from the document you have saved in the helper react doc and copy the
+necessary files
 
-    ToDO !!See naughts and cross example for restful example!!
+index.html -> reacts entry point
 
-Previous the end to end has been the bootstrap data generation into the h2 database
+client and the other in the api => NO IDEA WHAT THESE TWO DO???
 
-Now we're only going to be using the bootstrap class to insert static data, for example the type of
-electrical devices or types of fixes
+only that clients needed to call your backend
 
-The controllers will go on the web side as this is less to do with the model and more to do with how the
-user will interact with the web application. For example each web page will have it's own controller
+remember you dont have separate web pages, the react website is it's own thing andit calls the backend when it wants
+it could have multiple backend calls in one page
 
-
--------Also getting thyme leaf working :D ---------------
-
-Start off with the bare bones html and go from there
-
-I think the onyl mapping spring boot has to start is the default mapping for the index
-I think the remaining mapping must be done through the controller, so you should have this in place
-before trying to create any web pages
-
+webpack.config.js
+and the package.JSON not sure what this does either :/
