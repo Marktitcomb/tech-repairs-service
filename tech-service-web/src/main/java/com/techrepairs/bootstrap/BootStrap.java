@@ -60,7 +60,7 @@ public class BootStrap implements CommandLineRunner {
         owner.getItems().add(repairItem);
 
         ownerJPAService.save(owner);
-
+        repairItemJPAService.save(repairItem);
 //        Repair repairJob = new Repair();
 //        repairJob.setCost(33);
 //
