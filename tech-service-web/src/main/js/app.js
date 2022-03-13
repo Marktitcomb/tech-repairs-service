@@ -5,9 +5,10 @@ const ReactDOM = require('react-dom');
 
 import { NavLink } from "react-router-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import * as serviceWorker from "./serviceWorker";
 // import "../resources/static/main.css";
 
-import {Home} from "./pages";
+import {Home} from './pages';
 
 
 class App extends React.Component {//https://reactjs.org/docs/react-component.html
@@ -21,7 +22,7 @@ class App extends React.Component {//https://reactjs.org/docs/react-component.ht
             <div className="navigation">
                 <nav className="navbar navbar-expand navbar-dark bg-dark">
                     <div className="container">
-                        <NavLink className="navbar-brand" to="/home">
+                        <NavLink className="navbar-brand" to="/">
                             React Multi-Page Website
                         </NavLink>
                         {/*<div>*/}
@@ -60,8 +61,10 @@ ReactDOM.render(
     <Router>
         <App />
         <Routes>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
         </Routes>
     </Router>,
     document.getElementById('react') // this is the name 'react' which connects it to the index page
 );
+
+serviceWorker.unregister();

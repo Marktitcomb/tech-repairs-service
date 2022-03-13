@@ -2,17 +2,44 @@
 
 ---integrating react
 
-Follow all steps from the document you have saved in the helper react doc and copy the
-necessary files
+react overview far
 
-index.html -> reacts entry point
+1. import all your stuff ...  import or require doesnt matter
+    const React = require('react');
+    const ReactDOM = require('react-dom');
 
-client and the other in the api => NO IDEA WHAT THESE TWO DO???
+    import { NavLink } from "react-router-dom";
+    import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-only that clients needed to call your backend
+2. You have one main page... here we use main but lots of tutorials use index
 
-remember you dont have separate web pages, the react website is it's own thing andit calls the backend when it wants
-it could have multiple backend calls in one page
+3. At the bottom of the main page is where you link to the index.html page
+    (Dom represents the html page)
+    ReactDOM.render(
+        <Router>
+            <App /> //name of the main connecting class/function
+            <Routes>
+                <Route path="/home" element={<Home />} /> //rout to the home page
+            </Routes>
+        </Router>,
+        document.getElementById('react') // this is the name 'react' which connects it to the index page
+    );
 
-webpack.config.js
-and the package.JSON not sure what this does either :/
+ 4. exporting the function was easy -> export default Navigation; after the function
+                                    -> then you need the index.js in a sep directory with... export { default as Home } from "./Home";
+
+    exporting the class was not... it can still be done but you may also need the index.js to export as well
+
+
+ 5. the refresh erro problem
+        With the default strategy (HTML5 history API) of routing, you need a server configuration to redirect all your paths to your
+        HTML entry point file. With the hashbang approach it's not necessary...
+        If you want to switch to this approach, simply use the following code:
+
+
+2   I had a similar issue WhiteLabel Error message on my Angular SPA whenever I did a refresh.
+    If you don't want to change the app URL (which will happen if you use HashLocation Strategy),
+    you could add a new controller to handle the White label Error mapping in your Spring Boot app.
+
+    The fix was to create a controller that implements ErrorController and return a ModelAndView object that forwards to /
+
