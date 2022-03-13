@@ -2,66 +2,66 @@
 
 const React = require('react');
 const ReactDOM = require('react-dom');
-const client = require('./client');
 
-class App extends React.Component {
+import { NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import "../resources/static/main.css";
+
+import {Home} from "./pages";
+
+
+class App extends React.Component {//https://reactjs.org/docs/react-component.html
 
     constructor(props) {
         super(props);
-        this.state = {owners: []};
     }
-    //is the API invoked after React renders a component in the DOM.
-    componentDidMount() {
-        //so your client gets the /api/employees
-        //and when its done
-        //set the react employees variable to the repsonse.entity._embedded.employees
-        client({method: 'GET', path: '/api/repairItems'}).done(response => {
-            this.setState({
-                //._embedded.value is very important, you need the crrect name here!!
-                owners: response.entity._embedded.repairItems
-            });
-        });
-    }
-    render(){
-        return(
-            //populating the employees list class with props and passing it down
-            <OwnerList owners = {this.state.owners}/>
-        )
-    }
-}
 
-class OwnerList extends React.Component{
     render(){
-        //mapping a function to each changing it to html class Employee
-        const owners = this.props.owners.map(owner =>
-            <Owner key = {owner._links.self.href} owner = {owner}/>);
-
         return (
-            <table>
-                <tbody>
-                <tr>
-                    <th>First Name</th>
-                </tr>
-                {owners}
-                </tbody>
-            </table>
-        )
-
-    }
-}
-
-//so rather than give employee its own state we start from the top and pass it all down
-class Owner extends React.Component{
-    render(){
-        return(
-            <tr>
-                <td>{this.props.owner.itemDescription}</td>
-            </tr>
-        )
+            <div className="navigation">
+                <nav className="navbar navbar-expand navbar-dark bg-dark">
+                    <div className="container">
+                        <NavLink className="navbar-brand" to="/home">
+                            React Multi-Page Website
+                        </NavLink>
+                        {/*<div>*/}
+                        {/*    <ul className="navbar-nav ml-auto">*/}
+                        {/*        <li className="nav-item">*/}
+                        {/*            <NavLink className="nav-link" to="/">*/}
+                        {/*                Home*/}
+                        {/*                <span className="sr-only">(current)</span>*/}
+                        {/*            </NavLink>*/}
+                        {/*        </li>*/}
+                        {/*        <li className="nav-item">*/}
+                        {/*            <NavLink className="nav-link" to="/about">*/}
+                        {/*                About*/}
+                        {/*            </NavLink>*/}
+                        {/*        </li>*/}
+                        {/*        <li className="nav-item">*/}
+                        {/*            <NavLink className="nav-link" to="/contact">*/}
+                        {/*                Contact*/}
+                        {/*            </NavLink>*/}
+                        {/*        </li>*/}
+                        {/*        <li className="nav-item">*/}
+                        {/*            <NavLink className="nav-link" to="/blog">*/}
+                        {/*                Blog*/}
+                        {/*            </NavLink>*/}
+                        {/*        </li>*/}
+                        {/*    </ul>*/}
+                        {/*</div>*/}
+                    </div>
+                </nav>
+            </div>
+        );
     }
 }
 
 ReactDOM.render(
-    <App />,
-    document.getElementById('react')
-)
+    <Router>
+        <App />
+        <Routes>
+            <Route path="/home" element={<Home />} />
+        </Routes>
+    </Router>,
+    document.getElementById('react') // this is the name 'react' which connects it to the index page
+);
