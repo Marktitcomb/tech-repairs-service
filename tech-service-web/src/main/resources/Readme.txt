@@ -43,3 +43,12 @@ react overview far
 
     The fix was to create a controller that implements ErrorController and return a ModelAndView object that forwards to /
 
+    this was found to be a spring boot issue and server.error.whitelabel.enabled=false can solve this too
+
+    BASICALLY!!! when using spring boot it'll want to take you to different URLs, like you've seen previously with thymleaf projects.
+    Here however, we always want to be taken back to the html entry point as react is sorting the urls for us. Springboot always
+    wants to hit the index page!
+
+6. WhiteLabel Error Page
+
+   WhiteLabel Error Page is a generic Spring Boot error page that is displayed when no custom error page is present.

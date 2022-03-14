@@ -14,7 +14,7 @@ public class HandlerErrorController implements ErrorController {
 
     @RequestMapping(value = PATH)
     public ModelAndView saveLeadQuery() {
-        return new ModelAndView("forward:/");
+        return new ModelAndView("forward:/"); //https://www.baeldung.com/spring-redirect-and-forward
     }
 
     @Override
