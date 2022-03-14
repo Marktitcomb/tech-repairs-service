@@ -69,7 +69,7 @@ class Item extends React.Component{
         return(
             <tr>
                 <td>{this.props.item.id} </td>
-                <td>{this.props.item.owner} </td>
+                <td>{this.props.item._links.owner.href} </td>
                 <td>{this.props.item.itemDescription}</td>
             </tr>
         );
