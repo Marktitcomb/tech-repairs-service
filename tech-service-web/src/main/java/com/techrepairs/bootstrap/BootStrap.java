@@ -74,6 +74,8 @@ public class BootStrap implements CommandLineRunner {
 
         System.out.println("owner and single repair item loaded in");
         logger.info("owner and single repair item loaded in");
+        logger.info("repair item id: " + repairItem.getId() + " owner: " + repairItem.getOwner()
+                + " Description: " + repairItem.getItemDescription());
 
     }
 }
